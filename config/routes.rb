@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :categories
+  resources :expenses
   devise_for :accounts
   root 'home#index'
 
