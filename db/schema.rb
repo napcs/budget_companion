@@ -40,6 +40,16 @@ ActiveRecord::Schema.define(version: 20151108024500) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "data_points", force: :cascade do |t|
+    t.integer  "goal_id"
+    t.decimal  "desired_amount", default: 0.0
+    t.decimal  "actual_amount",  default: 0.0
+    t.date     "start_date"
+    t.date     "end_date"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
   create_table "expenses", force: :cascade do |t|
     t.text     "name"
     t.decimal  "amount"
@@ -56,6 +66,17 @@ ActiveRecord::Schema.define(version: 20151108024500) do
 
   add_index "expenses", ["account_id"], name: "index_expenses_on_account_id"
   add_index "expenses", ["category_id"], name: "index_expenses_on_category_id"
+
+  create_table "goals", force: :cascade do |t|
+    t.string   "name"
+    t.date     "start_date"
+    t.string   "duration"
+    t.string   "frequency"
+    t.decimal  "desired_total", default: 0.0
+    t.decimal  "actual_total",  default: 0.0
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
 
   create_table "incomes", force: :cascade do |t|
     t.text     "income_source"

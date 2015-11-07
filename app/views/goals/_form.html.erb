@@ -1,0 +1,41 @@
+<%= form_for(@goal) do |f| %>
+  <% if @goal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@goal.errors.count, "error") %> prohibited this goal from being saved:</h2>
+
+      <ul>
+      <% @goal.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :start_date %><br>
+    <%= f.date_select :start_date %>
+  </div>
+  <div class="field">
+    <%= f.label :duration %><br>
+    <%= f.select(:duration, options_for_select(@durations)) %>
+  </div>
+  <div class="field">
+    <%= f.label :frequency %><br>
+    <%= f.select(:frequency, options_for_select(@frequencies)) %>
+  </div>
+  <div class="field">
+    <%= f.label :desired_total %><br>
+    <%= f.text_field :desired_total %>
+  </div>
+  <div class="field">
+    <%= f.label :actual_total %><br>
+    <%= f.text_field :actual_total %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
