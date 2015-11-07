@@ -1,8 +1,9 @@
 class ExpensesController < ApplicationController
-  before_action :set_expense, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_account!
-  
-  
+  before_action :set_expense, only: [:show, :edit, :update, :destroy]
+  before_action :set_categories, only: [:new, :edit, :create, :update]
+
+
   # GET /expenses
   # GET /expenses.json
   def index
@@ -27,7 +28,7 @@ class ExpensesController < ApplicationController
   # POST /expenses.json
   def create
     @expense = current_account.expenses.build(expense_params)
-    
+
 
     respond_to do |format|
       if @expense.save
@@ -70,8 +71,12 @@ class ExpensesController < ApplicationController
       @expense = current_account.expenses.find(params[:id])
     end
 
+    def set_categories
+      @categories = Category.all.collect{|c| [c.title, c.id] }
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def expense_params
-      params.require(:expense).permit(:name, :category, :amount, :dueDate, :paymentDate, :lateFee, :apr, :paid)
+      params.require(:expense).permit(:name, :category_id, :amount, :dueDate, :paymentDate, :lateFee, :apr, :paid)
     end
 end
