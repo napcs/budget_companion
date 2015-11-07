@@ -5,10 +5,12 @@
   <%= @expense.name %>
 </p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @expense.category %>
-</p>
+<% if @expense.category %>
+  <p>
+    <strong>Category:</strong>
+    <%= @expense.category.title %>
+  </p>
+<% end %>
 
 <p>
   <strong>Amount:</strong>
