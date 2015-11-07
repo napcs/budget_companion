@@ -1,14 +1,41 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Budgetapp</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <meta charset="utf-8">
+    <title>Budgetapp</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
-<%= yield %>
+    <div class="container">
+      <header>
+        <h1>BudgetApp</h1>
+      </header>
 
-</body>
+      <% if notice %>
+        <p class="notice"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert"><%= alert %></p>
+      <% end %>
+
+      <nav>
+        <ul>
+          <% if account_signed_in? %>
+            <li><%= link_to "Sign Out", destroy_account_session_path, method: :delete %> </li>
+          <% else %>
+            <li><%= link_to "Sign in", new_account_session_path %> </li>
+          <% end %>
+        </ul>
+      </nav>
+
+      <%= yield %>
+
+      <footer>
+        <small>Copyright <%=Date.today.year %></small>
+      </footer>
+    </div>
+  </body>
 </html>
