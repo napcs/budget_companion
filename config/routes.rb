@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'dashboard/show'
+
   resources :categories
   resources :expenses
   devise_for :accounts
