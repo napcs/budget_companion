@@ -22,7 +22,7 @@
       <tr>
         <td><%= expense.name %></td>
         <td><%= expense.category %></td>
-        <td><%= expense.amount %></td>
+        <td><%= number_to_currency (expense.amount) %></td>
         <td><%= expense.dueDate %></td>
         <td><%= expense.paymentDate %></td>
         <td><%= expense.lateFee %></td>
