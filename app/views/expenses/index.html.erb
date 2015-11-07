@@ -12,7 +12,6 @@
       <th>Payment Date</th>
       <th>Late Fee</th>
       <th>APR</th>
-      <th>Paid</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -27,10 +26,9 @@
         <td><%= expense.paymentDate %></td>
         <td><%= expense.lateFee %></td>
         <td><%= expense.apr %></td>
-        <td><%= expense.paid %></td>
         <td><%= link_to 'Show', expense %></td>
         <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
-        <td><%= link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
