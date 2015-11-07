@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get 'dashboard/show'
+  get 'home/expired'
 
   resources :categories
   resources :expenses
