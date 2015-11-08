@@ -1,0 +1,37 @@
+<%= form_for([@income, @income_payment]) do |f| %>
+  <% if @income_payment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@income_payment.errors.count, "error") %> prohibited this income_payment from being saved:</h2>
+
+      <ul>
+      <% @income_payment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :gross_income %><br>
+    <%= f.text_field :gross_income %>
+  </div>
+  <div class="field">
+    <%= f.label :net_income %><br>
+    <%= f.text_field :net_income %>
+  </div>
+
+<% if @income_payment.persisted? %>
+  <div class="field">
+    <%= f.label :payment_date %><br>
+    <%= f.date_select :payment_date %>
+  </div>
+  <div class="field">
+    <%= f.label :received %><br>
+    <%= f.check_box :received %>
+  </div>
+<% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

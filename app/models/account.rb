@@ -6,7 +6,6 @@ class Account < ActiveRecord::Base
 
   has_many :expenses, dependent: :destroy 
   has_many :incomes, dependent: :destroy 
-  has_many :income_payments, dependent: :destroy 
 
   include Gravtastic
   gravtastic

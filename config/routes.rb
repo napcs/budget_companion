@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-
+  
   resources :goals
-  resources :incomes
+  resources :incomes do
+    resources :income_payments
+  end
+  
   get 'dashboard/show'
   get 'home/expired'
 
