@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Gross Income:</strong>
+  <%= @income_payment.gross_income %>
+</p>
+
+<p>
+  <strong>Net Income:</strong>
+  <%= @income_payment.net_income %>
+</p>
+
+<p>
+  <strong>Payment Date:</strong>
+  <%= @income_payment.payment_date %>
+</p>
+
+<p>
+  <strong>Received:</strong>
+  <%= @income_payment.received %>
+</p>
+
+<%= link_to 'Edit', edit_income_payment_path(@income_payment) %> |
+<%= link_to 'Back', income_payments_path %>
