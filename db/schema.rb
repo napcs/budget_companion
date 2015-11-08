@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151108202928) do
+ActiveRecord::Schema.define(version: 20151108204044) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -87,7 +87,10 @@ ActiveRecord::Schema.define(version: 20151108202928) do
     t.decimal  "actual_total",  default: 0.0
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.integer  "account_id"
   end
+
+  add_index "goals", ["account_id"], name: "index_goals_on_account_id"
 
   create_table "income_payments", force: :cascade do |t|
     t.decimal  "gross_income"

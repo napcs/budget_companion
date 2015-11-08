@@ -34,7 +34,7 @@
 <%= link_to 'Back', goals_path %>
 
 <hr>
-<% @goal.data_points.each do |data_point| %>
+<% @goal.data_points.order("due_date ASC").each do |data_point| %>
     <br>
     <p>desired amount: <%= data_point.desired_amount %></p>
     <p>actual amount:  <%= data_point.actual_amount %></p>

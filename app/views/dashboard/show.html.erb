@@ -32,3 +32,29 @@
     <% end %>
   </tbody>
 </table>
+
+<h3>Goals</h3>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th>Goal</th>
+    <th>Desired Amount</th>
+    <th>Actual Amount</th>
+    <th>Due Date</th>
+  </tr>
+  </thead>
+
+  <tbody>
+
+  <% @goal_data_points.each do |data_point| %>
+      <tr>
+        <td><%= data_point.goal.name %></td>
+        <td><%= data_point.desired_amount %></td>
+        <td><%= data_point.actual_amount %></td>
+        <td><%= data_point.due_date.strftime("%m/%d/%Y") %></td>
+      </tr>
+  <% end %>
+
+  </tbody>
+</table>

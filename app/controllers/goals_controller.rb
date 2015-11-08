@@ -33,6 +33,7 @@ class GoalsController < ApplicationController
     respond_to do |format|
       if @goal.save
          @goal.data_points = DataPoint.generate_data_points_for(@goal)
+         @goal.account = current_account
          @goal.save
         format.html { redirect_to @goal, notice: 'Goal was successfully created.' }
         format.json { render :show, status: :created, location: @goal }
@@ -48,6 +49,11 @@ class GoalsController < ApplicationController
   def update
     respond_to do |format|
       if @goal.update(goal_params)
+
+        total = 0
+        @goal.data_points.map{|data_point| total = total + data_point.actual_amount }
+        @goal.actual_total = total
+        @goal.save
         format.html { redirect_to @goal, notice: 'Goal was successfully updated.' }
         format.json { render :show, status: :ok, location: @goal }
       else
@@ -75,6 +81,8 @@ class GoalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def goal_params
-      params.require(:goal).permit(:name, :start_date, :duration, :frequency, :desired_total, :actual_total)
+      params.require(:goal).permit(:name, :start_date, :duration, :frequency, :desired_total, :actual_total, data_points_attributes: [:id, :desired_amount, :actual_amount, :due_date])
     end
 end
+
+
