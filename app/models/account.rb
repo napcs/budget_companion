@@ -4,7 +4,8 @@ class Account < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :timeoutable, :trackable, :validatable
 
-  has_many :expenses, dependent: :destroy
+  has_many :expenses, dependent: :destroy 
+  has_many :incomes, dependent: :destroy 
 
   include Gravtastic
   gravtastic

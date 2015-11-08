@@ -4,7 +4,7 @@ class IncomesController < ApplicationController
   # GET /incomes
   # GET /incomes.json
   def index
-    @incomes = current_account.Income.all
+    @incomes = current_account.incomes.all
   end
 
   # GET /incomes/1
@@ -24,7 +24,7 @@ class IncomesController < ApplicationController
   # POST /incomes
   # POST /incomes.json
   def create
-    @income = current_account.Income.new(income_params)
+    @income = current_account.incomes.new(income_params)
 
     respond_to do |format|
       if @income.save
