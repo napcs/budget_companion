@@ -31,10 +31,17 @@
     <%= f.label :desired_total %><br>
     <%= f.text_field :desired_total %>
   </div>
-  <div class="field">
-    <%= f.label :actual_total %><br>
-    <%= f.text_field :actual_total %>
-  </div>
+
+    <div class="field">
+      <%= f.label :actual_total %><br>
+      <% if @goal.persisted? %>
+        <p><%=@goal.actual_total%></p>
+          <% else %>
+          <%= f.text_field :actual_total %>
+      <% end %>
+    </div>
+
+
     <% if @goal.persisted? %>
         <hr>
         <h5>Due Dates</h5>

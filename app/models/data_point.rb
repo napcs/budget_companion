@@ -1,5 +1,6 @@
 class DataPoint < ActiveRecord::Base
   belongs_to :goal
+  belongs_to :account
 
   class << self
     def generate_data_points_for(goal)

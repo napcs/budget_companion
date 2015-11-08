@@ -3,7 +3,7 @@ class DashboardController < ApplicationController
   
   def show
     
-    @sort = params[:sort]
+    @sort = params[:sort].blank? ? "week" : params[:sort]
     
     if @sort == "week" || @sort.blank?
       @expenses = current_account.expenses.where(
@@ -28,7 +28,8 @@ class DashboardController < ApplicationController
     end
 
     @sum = @expenses.inject(0){|sum, expense| sum += expense.amount}
-    
+
+    @goal_data_points = Goal.send("goals_for_the_#{@sort}", current_account)
   end
   
 end
