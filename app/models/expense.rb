@@ -1,5 +1,4 @@
 class Expense < ActiveRecord::Base
-
   belongs_to :account
   belongs_to :category
 
@@ -8,5 +7,7 @@ class Expense < ActiveRecord::Base
   validates :amount, numericality: true
   validates :dueDate, presence: true
   validates :paymentDate, presence: true
+
+  has_many :expense_payments, dependent: :destroy
 
 end

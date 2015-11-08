@@ -1,12 +1,19 @@
 Rails.application.routes.draw do
 
   resources :goals
+  resources :income_payments
   resources :incomes
   get 'dashboard/show'
   get 'home/expired'
 
   resources :categories
-  resources :expenses
+
+  # /expenses/:id
+  resources :expenses do
+    # /expenses/:expense_id/expense_payments/:id
+    resources :expense_payments
+  end
+
   devise_for :accounts
   root 'home#index'
 
