@@ -6,7 +6,13 @@ Rails.application.routes.draw do
   get 'home/expired'
 
   resources :categories
-  resources :expenses
+
+  # /expenses/:id
+  resources :expenses do
+    # /expenses/:expense_id/expense_payments/:id
+    resources :expense_payments
+  end
+
   devise_for :accounts
   root 'home#index'
 
