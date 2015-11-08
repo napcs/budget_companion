@@ -30,6 +30,8 @@ class GoalsController < ApplicationController
 
     respond_to do |format|
       if @goal.save
+         @goal.data_points = DataPoint.generate_data_points_for(@goal)
+         @goal.save
         format.html { redirect_to @goal, notice: 'Goal was successfully created.' }
         format.json { render :show, status: :created, location: @goal }
       else

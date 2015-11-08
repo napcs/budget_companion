@@ -32,3 +32,11 @@
 
 <%= link_to 'Edit', edit_goal_path(@goal) %> |
 <%= link_to 'Back', goals_path %>
+
+<% @goal.data_points.each do |data_point| %>
+    <br>
+    <p>desired_amount: <%= data_point.desired_amount %></p>
+    <p>actual_amount:  <%= data_point.actual_amount %></p>
+    <p>start_date:     <%= data_point.start_date %></p>
+    <p>end_date:       <%= data_point.end_date %></p>
+<% end %>
