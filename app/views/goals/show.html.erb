@@ -6,8 +6,8 @@
 </p>
 
 <p>
-  <strong>Start date:</strong>
-  <%= @goal.start_date %>
+  <strong>Start Date:</strong>
+  <%= @goal.start_date.strftime("%m/%d/%Y") %>
 </p>
 
 <p>
@@ -21,22 +21,22 @@
 </p>
 
 <p>
-  <strong>Desired total:</strong>
-  <%= @goal.desired_total %>
+  <strong>Desired Total:</strong>
+  <%= number_to_currency(@goal.desired_total) %>
 </p>
 
 <p>
-  <strong>Actual total:</strong>
-  <%= @goal.actual_total %>
+  <strong>Actual Total:</strong>
+  <%= number_to_currency(@goal.actual_total) %>
 </p>
 
 <%= link_to 'Edit', edit_goal_path(@goal) %> |
 <%= link_to 'Back', goals_path %>
 
-<hr>
+<h3>Due Dates: </h3>
 <% @goal.data_points.order("due_date ASC").each do |data_point| %>
-    <br>
-    <p>desired amount: <%= data_point.desired_amount %></p>
-    <p>actual amount:  <%= data_point.actual_amount %></p>
-    <p>due date:       <%= data_point.due_date %></p>
+    <p>Desired Amount: <%= number_to_currency(data_point.desired_amount) %></p>
+    <p>Actual Amount:  <%= number_to_currency(data_point.actual_amount) %></p>
+    <p>Due Date:       <%= data_point.due_date.strftime("%m/%d/%Y") %></p>
+    <hr><br>
 <% end %>
