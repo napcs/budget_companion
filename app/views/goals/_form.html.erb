@@ -44,7 +44,7 @@
 
     <% if @goal.persisted? %>
         <hr>
-        <h5>Due Dates</h5>
+        <h3>Due Dates:</h3>
 
         <%= f.fields_for :data_points do |builder| %>
             <div class="field">
@@ -59,6 +59,7 @@
               <%= builder.label :due_date %><br>
               <%= builder.date_select :due_date %>
             </div>
+            <br><hr>
         <% end %>
 
     <% end %>
