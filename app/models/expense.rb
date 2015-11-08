@@ -9,4 +9,6 @@ class Expense < ActiveRecord::Base
   validates :dueDate, presence: true
   validates :paymentDate, presence: true
 
+  has_many :expense_payments, dependent: :destroy
+
 end
