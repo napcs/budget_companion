@@ -14,10 +14,7 @@
       <th>Category</th>
       <th>Amount</th>
       <th>Due Date</th>
-      <th>Payment Date</th>
-      <th>Late Fee</th>
-      <th>APR</th>
-      <th>Paid</th>
+      <th>Date to Pay</th>
     </tr>
   </thead>
 
@@ -30,10 +27,7 @@
         <td><%= number_to_currency (expense.amount) %></td>
         <td><%= expense.dueDate.strftime("%m/%d/%Y") %></td>
         <td><%= expense.paymentDate.strftime("%m/%d/%Y") %></td>
-        <td><%= expense.lateFee %></td>
-        <td><%= expense.apr %></td>
-        <td><%= expense.paid %></td>
-        <td><%= link_to 'View', expense %></td>
+        <td><%= link_to 'Manage Payments', expense_expense_payments_path(expense) %></td>
       </tr>
     <% end %>
   </tbody>
