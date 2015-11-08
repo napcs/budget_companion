@@ -3,9 +3,11 @@
 one:
   gross_income: 9.99
   net_income: 9.99
-  paymentDate: 2015-11-07
+  payment_date: 2015-11-08
+  received: false
 
 two:
   gross_income: 9.99
   net_income: 9.99
-  paymentDate: 2015-11-07
+  payment_date: 2015-11-08
+  received: false

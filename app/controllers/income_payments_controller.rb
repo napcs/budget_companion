@@ -1,11 +1,13 @@
 class IncomePaymentsController < ApplicationController
   before_action :authenticate_account!
+  before_action :set_income
   before_action :set_income_payment, only: [:show, :edit, :update, :destroy]
+  
 
   # GET /income_payments
   # GET /income_payments.json
   def index
-    @income_payments = current_account.income_payments.all
+    @income_payments = @income.income_payments.all
   end
 
   # GET /income_payments/1
@@ -15,7 +17,8 @@ class IncomePaymentsController < ApplicationController
 
   # GET /income_payments/new
   def new
-    @income_payment = IncomePayment.new
+    @income_payment = @income.income_payments.build
+    @income_payment.payment_date = 1.month.from_now  
   end
 
   # GET /income_payments/1/edit
@@ -25,7 +28,7 @@ class IncomePaymentsController < ApplicationController
   # POST /income_payments
   # POST /income_payments.json
   def create
-    @income_payment = current_account.income_payments.new(income_payment_params)
+    @income_payment = @income.income_payments.build(income_payment_params)
 
     respond_to do |format|
       if @income_payment.save
@@ -65,11 +68,15 @@ class IncomePaymentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_income_payment
-      @income_payment = IncomePayment.find(params[:id])
+      @income_payment = @income.income_payments.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def income_payment_params
-      params.require(:income_payment).permit(:gross_income, :net_income, :paymentDate)
+      params.require(:income_payment).permit(:gross_income, :net_income, :payment_date, :received)
+    end
+  
+    def set_income
+      @income = current_account.incomes.find(params[:income_id])
     end
 end

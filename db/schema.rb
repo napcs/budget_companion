@@ -95,13 +95,14 @@ ActiveRecord::Schema.define(version: 20151108204044) do
   create_table "income_payments", force: :cascade do |t|
     t.decimal  "gross_income"
     t.decimal  "net_income"
-    t.date     "paymentDate"
+    t.date     "payment_date"
+    t.boolean  "received"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.integer  "account_id"
+    t.integer  "income_id"
   end
 
-  add_index "income_payments", ["account_id"], name: "index_income_payments_on_account_id"
+  add_index "income_payments", ["income_id"], name: "index_income_payments_on_income_id"
 
   create_table "incomes", force: :cascade do |t|
     t.text     "income_source"

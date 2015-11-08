@@ -5,7 +5,7 @@ class Account < ActiveRecord::Base
          :recoverable, :rememberable, :timeoutable, :trackable, :validatable
 
   has_many :expenses, dependent: :destroy 
-  has_many :incomes, dependent: :destroy 
+  has_many :incomes, dependent: :destroy
   has_many :income_payments, dependent: :destroy
   has_many :goals
   has_many :data_points, through: :goals

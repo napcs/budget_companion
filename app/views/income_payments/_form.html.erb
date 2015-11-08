@@ -1,4 +1,4 @@
-<%= form_for(@income_payment) do |f| %>
+<%= form_for([@income, @income_payment]) do |f| %>
   <% if @income_payment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@income_payment.errors.count, "error") %> prohibited this income_payment from being saved:</h2>
@@ -19,10 +19,18 @@
     <%= f.label :net_income %><br>
     <%= f.text_field :net_income %>
   </div>
+
+<% if @income_payment.persisted? %>
   <div class="field">
-    <%= f.label :paymentDate %><br>
-    <%= f.date_select :paymentDate %>
+    <%= f.label :payment_date %><br>
+    <%= f.date_select :payment_date %>
   </div>
+  <div class="field">
+    <%= f.label :received %><br>
+    <%= f.check_box :received %>
+  </div>
+<% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

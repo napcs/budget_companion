@@ -1,6 +1,6 @@
 <p id="notice" class="row"><%= notice %></p>
 
-<h1 align="center">Incomes</h1>
+<h1>Incomes</h1>
 
 <table class="table">
   <%= link_to 'New Income', new_income_path %>
@@ -9,6 +9,7 @@
       <th>Income Source</th>
       <th>Category</th>
       <th>Bank Account</th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
@@ -26,6 +27,7 @@
         <td><%= income.bank_account %></td>
         <td><%= link_to 'Show', income %></td>
         <td><%= link_to 'Edit', edit_income_path(income) %></td>
+        <td><%= link_to 'Manage Payments', income_income_payments_path(income) %></td>
         <td><%= link_to 'Destroy', income, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
