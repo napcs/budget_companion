@@ -7,7 +7,11 @@
 
 <p>
   <strong>Category:</strong>
-  <%= @income.category %>
+  <% if @income.category %>
+    <%= @income.category.title %>
+  <% else %>
+    None
+  <% end %>
 </p>
 
 <p>

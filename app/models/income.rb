@@ -4,5 +4,5 @@ class Income < ActiveRecord::Base
   
   has_many :income_payments, as: :incomePayable
 
-  validates :name, presence: true
+  validates :income_source, presence: true
 end
