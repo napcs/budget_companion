@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :goals
   resources :income_payments
   resources :incomes
   get 'dashboard/show'
