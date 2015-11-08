@@ -16,7 +16,13 @@
     <% @incomes.each do |income| %>
       <tr>
         <td><%= income.income_source %></td>
-        <td><%= income.category %></td>
+        <td>
+          <% if income.category %>
+            <%= income.category.title %>
+          <% else %>
+            None
+          <% end %>
+        </td>
         <td><%= income.bank_account %></td>
         <td><%= link_to 'Show', income %></td>
         <td><%= link_to 'Edit', edit_income_path(income) %></td>

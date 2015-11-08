@@ -1,0 +1,38 @@
+<%= form_for([@expense, @expense_payment]) do |f| %>
+  <% if @expense_payment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@expense_payment.errors.count, "error") %> prohibited this expense_payment from being saved:</h2>
+
+      <ul>
+      <% @expense_payment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :amount %><br>
+    <%= f.text_field :amount %>
+  </div>
+  <div class="field">
+    <%= f.label :due_date %><br>
+    <%= f.datetime_select :due_date %>
+  </div>
+
+  <% # only show on edit page %>
+  <% if @expense_payment.persisted? %>
+    <div class="field">
+      <%= f.label :payment_date %><br>
+      <%= f.datetime_select :payment_date %>
+    </div>
+    <div class="field">
+      <%= f.label :paid %><br>
+      <%= f.check_box :paid %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

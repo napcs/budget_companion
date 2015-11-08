@@ -1,5 +1,8 @@
 class IncomesController < ApplicationController
+  before_action :authenticate_account!
   before_action :set_income, only: [:show, :edit, :update, :destroy]
+  before_action :set_categories, only: [:new, :edit, :create, :update]
+  
 
   # GET /incomes
   # GET /incomes.json
@@ -66,9 +69,13 @@ class IncomesController < ApplicationController
     def set_income
       @income = Income.find(params[:id])
     end
+  
+    def set_categories
+      @categories = Category.all.collect{|c| [c.title, c.id] }
+    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def income_params
-      params.require(:income).permit(:income_source, :category, :gross_income, :net_income, :bank_account)
+      params.require(:income).permit(:income_source, :category_id, :gross_income, :net_income, :bank_account)
     end
 end
