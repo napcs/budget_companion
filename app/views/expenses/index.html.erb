@@ -1,6 +1,6 @@
-<p id="notice"><%= notice %></p>
+<h1>Expenses</h1>
 
-<h1>Listing Expenses</h1>
+<%= link_to 'New Expense', new_expense_path %>
 
 <table>
   <thead>
@@ -12,7 +12,7 @@
       <th>Payment Date</th>
       <th>Late Fee</th>
       <th>APR</th>
-      <th colspan="3"></th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
@@ -34,12 +34,9 @@
         <td><%= expense.apr %></td>
         <td><%= link_to 'Show', expense %></td>
         <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
+        <td><%= link_to 'Manage Payments', expense_expense_payments_path(expense) %></td>
         <td><%= link_to 'Delete', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+      <% end %>
+    </tr>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Expense', new_expense_path %>

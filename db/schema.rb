@@ -40,6 +40,27 @@ ActiveRecord::Schema.define(version: 20151108180057) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "data_points", force: :cascade do |t|
+    t.integer  "goal_id"
+    t.decimal  "desired_amount", default: 0.0
+    t.decimal  "actual_amount",  default: 0.0
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.date     "due_date"
+  end
+
+  create_table "expense_payments", force: :cascade do |t|
+    t.decimal  "amount"
+    t.datetime "due_date"
+    t.datetime "payment_date"
+    t.boolean  "paid",         default: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.integer  "expense_id"
+  end
+
+  add_index "expense_payments", ["expense_id"], name: "index_expense_payments_on_expense_id"
+
   create_table "expenses", force: :cascade do |t|
     t.text     "name"
     t.decimal  "amount"
@@ -56,6 +77,17 @@ ActiveRecord::Schema.define(version: 20151108180057) do
 
   add_index "expenses", ["account_id"], name: "index_expenses_on_account_id"
   add_index "expenses", ["category_id"], name: "index_expenses_on_category_id"
+
+  create_table "goals", force: :cascade do |t|
+    t.string   "name"
+    t.date     "start_date"
+    t.string   "duration"
+    t.string   "frequency"
+    t.decimal  "desired_total", default: 0.0
+    t.decimal  "actual_total",  default: 0.0
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
 
   create_table "income_payments", force: :cascade do |t|
     t.decimal  "gross_income"

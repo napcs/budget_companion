@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @goal.name %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @goal.start_date %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @goal.duration %>
+</p>
+
+<p>
+  <strong>Frequency:</strong>
+  <%= @goal.frequency %>
+</p>
+
+<p>
+  <strong>Desired total:</strong>
+  <%= @goal.desired_total %>
+</p>
+
+<p>
+  <strong>Actual total:</strong>
+  <%= @goal.actual_total %>
+</p>
+
+<%= link_to 'Edit', edit_goal_path(@goal) %> |
+<%= link_to 'Back', goals_path %>
+
+<hr>
+<% @goal.data_points.each do |data_point| %>
+    <br>
+    <p>desired amount: <%= data_point.desired_amount %></p>
+    <p>actual amount:  <%= data_point.actual_amount %></p>
+    <p>due date:       <%= data_point.due_date %></p>
+<% end %>
