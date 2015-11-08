@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  gross_income: 9.99
+  net_income: 9.99
+  paymentDate: 2015-11-07
+
+two:
+  gross_income: 9.99
+  net_income: 9.99
+  paymentDate: 2015-11-07
