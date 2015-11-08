@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  income_source: MyText
+  category: MyText
+  gross_income: 9.99
+  net_income: 9.99
+  bank_account: MyText
+
+two:
+  income_source: MyText
+  category: MyText
+  gross_income: 9.99
+  net_income: 9.99
+  bank_account: MyText

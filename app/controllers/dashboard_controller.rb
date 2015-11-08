@@ -5,7 +5,7 @@ class DashboardController < ApplicationController
     
     @sort = params[:sort]
     
-    if @sort == "week"
+    if @sort == "week" || @sort.blank?
       @expenses = current_account.expenses.where(
         "dueDate <= ? AND paid == ?", Date.today + 1.week, false
       ).order("dueDate ASC")
