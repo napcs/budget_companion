@@ -1,37 +1,47 @@
-<h2>Your Income and Expense Overview</h2>
-<p class="row">
-  <%= link_to "This Week", dashboard_show_path(sort: "week") %>&nbsp;&nbsp;
-  <%= link_to "This Month", dashboard_show_path(sort: "month") %>&nbsp;&nbsp;
-  <%= link_to "This Quarter", dashboard_show_path(sort: "quarter") %>&nbsp;&nbsp;
-  <%= link_to "This Year", dashboard_show_path(sort: "year") %>
-</p>
+<div class="row">
+  <div class="col-sm-12">
+      <h2>Your Income and Expense Overview</h2>
+      <p class="col-sm-12">
+        <%= link_to "This Week", dashboard_show_path(sort: "week") %>&nbsp;&nbsp;
+        <%= link_to "This Month", dashboard_show_path(sort: "month") %>&nbsp;&nbsp;
+        <%= link_to "This Quarter", dashboard_show_path(sort: "quarter") %>&nbsp;&nbsp;
+        <%= link_to "This Year", dashboard_show_path(sort: "year") %>
+      </p>
 
-<h3>Amount Due: <%= number_to_currency (@sum) %></h3>
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Category</th>
-      <th>Amount</th>
-      <th>Due Date</th>
-      <th>Date to Pay</th>
-    </tr>
-  </thead>
+      <h3>Amount Due: <%= number_to_currency (@sum) %></h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Amount</th>
+            <th>Due Date</th>
+            <th>Date to Pay</th>
+          </tr>
+        </thead>
 
-  <tbody>
+        <tbody>
 
-    <% @expenses.each do |expense| %>
-      <tr>
-        <td><%= expense.name %></td>
-        <td><%= expense.category %></td>
-        <td><%= number_to_currency (expense.amount) %></td>
-        <td><%= expense.dueDate.strftime("%m/%d/%Y") %></td>
-        <td><%= expense.paymentDate.strftime("%m/%d/%Y") %></td>
-        <td><%= link_to 'Manage Payments', expense_expense_payments_path(expense) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+          <% @expenses.each do |expense| %>
+            <tr>
+              <td><%= expense.name %></td>
+              <td>
+                <% if expense.category %>
+                  <%= expense.category.title %>
+                <% else %>
+                  None
+                <% end %>
+              </td>
+              <td><%= number_to_currency (expense.amount) %></td>
+              <td><%= expense.dueDate.strftime("%m/%d/%Y") %></td>
+              <td><%= expense.paymentDate.strftime("%m/%d/%Y") %></td>
+              <td><%= link_to 'Manage Payments', expense_expense_payments_path(expense) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+</div>
 
 <h3>Goals</h3>
 
@@ -58,3 +68,4 @@
 
   </tbody>
 </table>
+
