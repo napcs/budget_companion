@@ -1,7 +1,14 @@
-<h1>Dashboard</h1>
+<p class="row"></p>
+<h1 align="center">Dashboard</h1>
 
-<h2>Your Expenses Due This Week</h2>
-<table>
+<h3 align="center">Your Expenses Due This Week</h3>
+
+<h3 align="right">Amount Due: <%= number_to_currency (@sum) %></h3>
+<table class="table">
+  <%= link_to "This Week", dashboard_show_path(sort: "week") %>&nbsp;&nbsp;
+  <%= link_to "This Month", dashboard_show_path(sort: "month") %>&nbsp;&nbsp;
+  <%= link_to "This Quarter", dashboard_show_path(sort: "quarter") %>&nbsp;&nbsp;
+  <%= link_to "This Year", dashboard_show_path(sort: "year") %>
   <thead>
     <tr>
       <th>Name</th>
@@ -12,7 +19,6 @@
       <th>Late Fee</th>
       <th>APR</th>
       <th>Paid</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
@@ -34,9 +40,4 @@
   </tbody>
 </table>
 
-<h3>Amount Due: <%= number_to_currency (@sum) %></h3>
 
-<%= link_to "This Week", dashboard_show_path(sort: "week") %>
-<%= link_to "This Month", dashboard_show_path(sort: "month") %>
-<%= link_to "This Quarter", dashboard_show_path(sort: "quarter") %>
-<%= link_to "This Year", dashboard_show_path(sort: "year") %>
