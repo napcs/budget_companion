@@ -35,6 +35,26 @@
     <%= f.label :actual_total %><br>
     <%= f.text_field :actual_total %>
   </div>
+    <% if @goal.persisted? %>
+        <hr>
+        <h5>Due Dates</h5>
+
+        <%= f.fields_for :data_points do |builder| %>
+            <div class="field">
+              <%= builder.label :desired_amount %><br>
+              <%= builder.text_field :desired_amount %>
+            </div>
+            <div class="field">
+              <%= builder.label :actual_amount %><br>
+              <%= builder.text_field :actual_amount %>
+            </div>
+            <div class="field">
+              <%= builder.label :due_date %><br>
+              <%= builder.date_select :due_date %>
+            </div>
+        <% end %>
+
+    <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>

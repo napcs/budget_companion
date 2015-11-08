@@ -7,14 +7,9 @@ class DataPoint < ActiveRecord::Base
       dates.map{ |date|
         DataPoint.create(
             goal_id:        goal.id,
-            start_date:     date,
-            end_date:       date + (dates[1] - dates[0]),
+            due_date:     date,
             desired_amount: (goal.desired_total / dates.length).round(2) )
       }
-    end
-
-    def update_data_points_for(goal)
-      raise "DataPoint.update_data_points_for not implemented."
     end
 
     def last_day_of_the_month(month, year)
@@ -32,7 +27,7 @@ class DataPoint < ActiveRecord::Base
     end
 
     def next_weeks(date, times)
-      (1..times).map{ |_| date + 7 }
+      (1..times).map{ |_| date = date + 7 }
     end
 
     def one_year_monthly_from(date)
@@ -40,7 +35,7 @@ class DataPoint < ActiveRecord::Base
     end
 
     def one_year_weekly_from(date)
-      next_months(date, 52)
+      next_weeks(date, 52)
     end
 
     def six_months_monthly_from(date)
@@ -48,7 +43,7 @@ class DataPoint < ActiveRecord::Base
     end
 
     def six_months_weekly_from(date)
-      next_weeks(date, ((((date >> 6) - date).to_i / 7).to_i / 7).floor)
+      next_weeks(date, (((date >> 6) - date).to_i / 7).ceil)
     end
 
     def one_month_monthly_from(date)
@@ -56,7 +51,7 @@ class DataPoint < ActiveRecord::Base
     end
 
     def one_month_weekly_from(date)
-      next_weeks(date, ((date.next_month - date).to_i / 7).floor)
+      next_weeks(date, ((date.next_month - date).to_i / 7).ceil)
     end
   end
 

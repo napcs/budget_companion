@@ -21,6 +21,8 @@ class GoalsController < ApplicationController
 
   # GET /goals/1/edit
   def edit
+    @durations = Goal.durations
+    @frequencies = Goal.frequencies
   end
 
   # POST /goals

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151108024500) do
+ActiveRecord::Schema.define(version: 20151108174515) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -44,10 +44,9 @@ ActiveRecord::Schema.define(version: 20151108024500) do
     t.integer  "goal_id"
     t.decimal  "desired_amount", default: 0.0
     t.decimal  "actual_amount",  default: 0.0
-    t.date     "start_date"
-    t.date     "end_date"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
+    t.date     "due_date"
   end
 
   create_table "expenses", force: :cascade do |t|

@@ -1,5 +1,6 @@
 class Goal < ActiveRecord::Base
-  has_many :data_points
+  has_many :data_points, :dependent => :destroy
+  accepts_nested_attributes_for :data_points
 
   def self.durations()
     [ ["One Year", "one_year"],
