@@ -2,7 +2,7 @@ class IncomePaymentsController < ApplicationController
   before_action :authenticate_account!
   before_action :set_income
   before_action :set_income_payment, only: [:show, :edit, :update, :destroy]
-  
+
 
   # GET /income_payments
   # GET /income_payments.json
@@ -18,7 +18,7 @@ class IncomePaymentsController < ApplicationController
   # GET /income_payments/new
   def new
     @income_payment = @income.income_payments.build
-    @income_payment.payment_date = 1.month.from_now  
+    @income_payment.payment_date = 1.month.from_now
   end
 
   # GET /income_payments/1/edit
@@ -32,7 +32,7 @@ class IncomePaymentsController < ApplicationController
 
     respond_to do |format|
       if @income_payment.save
-        format.html { redirect_to @income_payment, notice: 'Income payment was successfully created.' }
+        format.html { redirect_to income_income_payments_path(@income), notice: 'Income payment was successfully updated.' }
         format.json { render :show, status: :created, location: @income_payment }
       else
         format.html { render :new }
@@ -46,7 +46,7 @@ class IncomePaymentsController < ApplicationController
   def update
     respond_to do |format|
       if @income_payment.update(income_payment_params)
-        format.html { redirect_to @income_payment, notice: 'Income payment was successfully updated.' }
+        format.html { redirect_to income_income_payments_path(@income), notice: 'Income payment was successfully updated.' }
         format.json { render :show, status: :ok, location: @income_payment }
       else
         format.html { render :edit }
@@ -60,7 +60,7 @@ class IncomePaymentsController < ApplicationController
   def destroy
     @income_payment.destroy
     respond_to do |format|
-      format.html { redirect_to income_payments_url, notice: 'Income payment was successfully destroyed.' }
+      format.html { redirect_to income_income_payments_url(@income), notice: 'Income payment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -75,7 +75,7 @@ class IncomePaymentsController < ApplicationController
     def income_payment_params
       params.require(:income_payment).permit(:gross_income, :net_income, :payment_date, :received)
     end
-  
+
     def set_income
       @income = current_account.incomes.find(params[:income_id])
     end

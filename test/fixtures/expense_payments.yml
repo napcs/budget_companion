@@ -5,9 +5,11 @@ one:
   due_date: 2015-11-08 11:14:59
   payment_date: 2015-11-08 11:14:59
   paid: false
+  expense: one
 
 two:
   amount: 9.99
   due_date: 2015-11-08 11:14:59
   payment_date: 2015-11-08 11:14:59
   paid: false
+  expense: one

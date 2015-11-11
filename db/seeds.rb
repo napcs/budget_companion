@@ -16,12 +16,12 @@ end
 utilities = Category.find_by_title "Utilities"
 work = Category.find_by_title "Work"
 
-cable = account.expenses.build( name: "Cable Bill", amount: 59.99, dueDate: "2015-12-06", paymentDate: "2015-12-06", lateFee: 9.99, apr: 9.99, paid: false)
+cable = account.expenses.build( name: "Cable Bill", amount: 59.99, due_date: "2015-12-06", payment_date: "2015-12-06", late_fee: 9.99, apr: 9.99, paid: false)
 cable.category = utilities
 cable.save!
 
-account.expenses.create( name: "Cellular Bill", amount: 80.99, dueDate: "2015-11-13", paymentDate: "2015-12-10", lateFee: 9.99, apr: 9.99, paid: false)
-account.expenses.create( name: "Mortgage", amount: 1425.31, dueDate: "2015-11-15", apr: 4.36, paid: false)
+account.expenses.create( name: "Cellular Bill", amount: 80.99, due_date: "2015-11-13", payment_date: "2015-12-10", late_fee: 9.99, apr: 9.99, paid: false)
+account.expenses.create( name: "Mortgage", amount: 1425.31, due_date: "2015-11-15", apr: 4.36, paid: false)
 
 paycheck = account.incomes.build( income_source: "Paycheck", gross_income: 1000, net_income: 850)
 paycheck.category = work

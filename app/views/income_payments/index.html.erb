@@ -24,7 +24,7 @@
             Received on <%= income_payment.payment_date %>
           <% else %>
 
-            <%= form_for([@expense, expense_payment]) do |f| %>
+            <%= form_for([@income, income_payment]) do |f| %>
               <%= f.hidden_field :paid, value: true %>
               <%= f.hidden_field :payment_date, value: Date.today %>
           <%= f.submit "Mark as received" %>
@@ -32,7 +32,7 @@
 
           <% end %>
         <td>
-        <td><%= link_to 'Show', income_income_payment_path(@income, income_payment) %></td> 
+        <td><%= link_to 'Show', income_income_payment_path(@income, income_payment) %></td>
         <td><%= link_to 'Edit', edit_income_income_payment_path(@income, income_payment) %></td>
         <td><%= link_to 'Destroy', income_income_payment_path(@income, income_payment), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

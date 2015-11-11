@@ -4,9 +4,9 @@ one:
   name: MyText
   category: MyText
   amount: 9.99
-  dueDate: 2015-11-06
-  paymentDate: 2015-11-06
-  lateFee: 9.99
+  due_date: 2015-11-06
+  payment_date: 2015-11-06
+  late_fee: 9.99
   apr: 9.99
   paid: false
   account: test
@@ -15,9 +15,9 @@ two:
   name: MyText2
   category: MyText2
   amount: 9.99
-  dueDate: 2015-11-06
-  paymentDate: 2015-11-06
-  lateFee: 9.99
+  due_date: 2015-11-06
+  payment_date: 2015-11-06
+  late_fee: 9.99
   apr: 9.99
   paid: false
   account: test

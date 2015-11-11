@@ -64,9 +64,9 @@ ActiveRecord::Schema.define(version: 20151108204044) do
   create_table "expenses", force: :cascade do |t|
     t.text     "name"
     t.decimal  "amount"
-    t.date     "dueDate"
-    t.date     "paymentDate"
-    t.decimal  "lateFee",     default: 0.0
+    t.date     "due_date"
+    t.date     "payment_date"
+    t.decimal  "late_fee",     default: 0.0
     t.decimal  "apr",         default: 0.0
     t.boolean  "paid",        default: false
     t.datetime "created_at",                  null: false

@@ -32,9 +32,9 @@
           <% end %>
         </td>
         <td><%= number_to_currency (expense.amount) %></td>
-        <td><%= expense.dueDate %></td>
-        <td><%= expense.paymentDate %></td>
-        <td><%= expense.lateFee %></td>
+        <td><%= expense.due_date.strftime("%m/%d/%Y") %></td>
+        <td><%= expense.payment_date.strftime("%m/%d/%Y") %></td>
+        <td><%= expense.late_fee %></td>
         <td><%= expense.apr %></td>
         <td><%= link_to 'Show', expense %></td>
         <td><%= link_to 'Edit', edit_expense_path(expense) %></td>

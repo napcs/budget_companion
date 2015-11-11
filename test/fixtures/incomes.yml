@@ -6,6 +6,7 @@ one:
   gross_income: 9.99
   net_income: 9.99
   bank_account: MyText
+  account: test
 
 two:
   income_source: MyText
@@ -13,3 +14,4 @@ two:
   gross_income: 9.99
   net_income: 9.99
   bank_account: MyText
+  account: test

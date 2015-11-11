@@ -5,9 +5,8 @@ class Expense < ActiveRecord::Base
   validates :name, presence: true
   validates :amount, presence: true
   validates :amount, numericality: true
-  validates :dueDate, presence: true
-  validates :paymentDate, presence: true
+  validates :due_date, presence: true
+  validates :payment_date, presence: true
 
   has_many :expense_payments, dependent: :destroy
-
 end
