@@ -1,5 +1,6 @@
 $navitem_background_hovered: #333;
 $navitem_foreground_hovered: #777;
+
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
 	color: $navitem_foreground_hovered;
