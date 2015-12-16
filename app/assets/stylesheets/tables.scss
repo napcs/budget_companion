@@ -1,0 +1,6 @@
+$table_hover_row_color: #ddd;
+
+table.table.table-hover tbody > tr:hover > td,
+table.table.table-hover tbody > tr:focus > td {
+	background-color: $table_hover_row_color;
+}
