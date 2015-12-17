@@ -1,6 +1,14 @@
+/* Our scheme */
+/* http://www.paletton.com/#uid=13y0u0kn7IfcDTwiqNMrUCMz5ul */
+
 $table_hover_row_color: #ddd;
+$table_header_background_color: #94C3EA;
 
 table.table.table-hover tbody > tr:hover > td,
 table.table.table-hover tbody > tr:focus > td {
 	background-color: $table_hover_row_color;
+}
+
+table > thead > tr {
+	background-color: $table_header_background_color;
 }
