@@ -2,8 +2,10 @@
 /* http://www.paletton.com/#uid=13y0u0kn7IfcDTwiqNMrUCMz5ul */
 
 $table_alternating_stripe_background_color: #ccc;
-$table_hover_row_color: #bbb;
 $table_header_background_color: #94C3EA;
+$table_hover_row_background_color: #bbb;
+$table_link_color: #0a5a9c;
+$table_link_font_weight: bold;
 
 table.table.table-striped tbody > tr:nth-child(odd) > td {
 	background-color: $table_alternating_stripe_background_color;
@@ -11,9 +13,16 @@ table.table.table-striped tbody > tr:nth-child(odd) > td {
 
 table.table.table-hover tbody > tr:hover > td,
 table.table.table-hover tbody > tr:focus > td {
-	background-color: $table_hover_row_color;
+	background-color: $table_hover_row_background_color;
 }
 
 table > thead > tr {
 	background-color: $table_header_background_color;
+}
+
+table > tbody > tr > td > a,
+table > tbody > tr > td > a:hover,
+table > tbody > tr > td > a:focus {
+	color: $table_link_color;
+	font-weight: $table_link_font_weight;
 }
