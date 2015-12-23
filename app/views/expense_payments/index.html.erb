@@ -33,7 +33,7 @@
         <td>
         <td><%= link_to 'Show', expense_expense_payment_path(@expense, expense_payment) %></td>
         <td><%= link_to 'Edit', edit_expense_expense_payment_path(@expense, expense_payment) %></td>
-        <td><%= link_to 'Destroy', expense_expense_payment_path(@expense, expense_payment), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', expense_expense_payment_path(@expense, expense_payment), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
