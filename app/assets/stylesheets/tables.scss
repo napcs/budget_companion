@@ -1,12 +1,17 @@
 /* Our scheme */
 /* http://www.paletton.com/#uid=13y0u0kn7IfcDTwiqNMrUCMz5ul */
 
-$table_alternating_stripe_background_color: #ccc;
-$table_hover_row_color: #bbb;
-$table_header_background_color: #94C3EA;
+$table_even_stripe_background_color: #bbb;
+$table_odd_stripe_background_color: #ccc;
+$table_hover_row_color: #aaa;
+$table_header_background_color: #65a5da;
 
 table.table.table-striped tbody > tr:nth-child(odd) > td {
-	background-color: $table_alternating_stripe_background_color;
+	background-color: $table_odd_stripe_background_color;
+}
+
+table.table.table-striped tbody > tr:nth-child(even) > td {
+	background-color: $table_even_stripe_background_color;
 }
 
 table.table.table-hover tbody > tr:hover > td,
